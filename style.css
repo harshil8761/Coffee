@@ -63,6 +63,23 @@ img{
     max-width: var(--site-max-width);
 }
 
+.section-title{
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title::after{
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-s);
+    background: var(--secoundary-colour);
+}
+
 /* navabar styling */ 
 header{
     position: fixed;
@@ -179,12 +196,73 @@ header .navbar{
     margin-right: 30px;
 }
 
+.about-section{
+    padding: 120px 0;
+    background: var(--light-colour);
+}
+
+.about-section .section-content{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-section .about-image .image-about{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-circle);
+}
+
+.about-section .about-details .section-title{
+    padding: 0;
+}
+
+.about-section .about-details {
+    max-width: 50%;
+}
+
+.about-section .about-details .text{
+    line-height: 30px;
+    margin: 50px 0 30px;
+    text-align: center;
+    font-size: var(--font-size-m);
+}
+
+.about-section .social-link-list{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.about-section .social-link-list .social-link{
+    color: var(--primary-colour);
+    font-size: var(--font-size-l);
+    transition: 0.2s ease;
+}
+
+.about-section .social-link-list .social-link:hover{
+    color: var(--secoundary-colour);
+}
+
 @media screen and (max-width: 900px) {
     :root{
         --font-size-m: 1rem;
         --font-size-l: 1.3rem;
         --font-size-xl: 1.5rem;
         --font-size-xxl: 1.8rem;
+    }
+
+    body.show-mobile-menu header::before{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
     }
 
     .navbar :where(#menu-close-button,#menu-open-button){
@@ -227,5 +305,38 @@ header .navbar{
 
     body.show-mobile-menu .navbar .nav-menu{
         left: 0;
+    }
+
+    .hero-section .section-content{
+        gap: 50px;
+        text-align: center;
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .hero-section .hero-details :is(.subtitle,.description), .about-section .about-details{
+        max-width: 100%;
+    }
+
+    .hero-section .hero-details .button{
+        justify-content: center;
+    }
+
+    .hero-section .image-hero{
+        max-width: 270px;
+        margin-right: 0;
+    }
+
+    .about-section .section-content{
+        gap: 70px;
+        flex-direction: column;
+    }
+
+    .about-section .about-image .image-about{
+        width: 100%;
+        height: 100%;
+        max-width: 250px;
+        aspect-ratio: 1;     
     }
 }
